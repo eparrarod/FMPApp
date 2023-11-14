@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="vertical"
+    android:textAlignment="viewStart"
+    tools:context=".MainActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/Constraint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="7dp"
+            android:text="@string/searchLabel"
+            app:layout_constraintStart_toEndOf="@+id/editTextTicker"
+            app:layout_constraintTop_toTopOf="@+id/editTextTicker" />
+
+        <EditText
+            android:id="@+id/editTextTicker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="20dp"
+            android:autofillHints="stockTicker"
+            android:ems="10"
+            android:hint="@string/TickerHint"
+            android:inputType="textCapCharacters"
+            app:layout_constraintStart_toEndOf="@+id/tickerLabel"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tickerLabel"
+            android:layout_width="68dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="12dp"
+            android:text="@string/tickerLabelText"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.046"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.022" />
+
+        <TextView
+            android:id="@+id/tickerText"
+            android:layout_width="132dp"
+            android:layout_height="18dp"
+            android:layout_marginTop="20dp"
+            android:textAlignment="center"
+            android:textColor="@color/teal_700"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/logoView"
+            app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+        <TextView
+            android:id="@+id/exchangeView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="39dp"
+            android:layout_marginTop="75dp"
+            android:text="@string/exchange"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tickerText" />
+
+        <TextView
+            android:id="@+id/changeView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/changePerc"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/currentPriceView"
+            app:layout_constraintTop_toBottomOf="@+id/currentPriceView" />
+
+        <TextView
+            android:id="@+id/sharesView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/shares_outstanding"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/epsView"
+            app:layout_constraintTop_toBottomOf="@+id/epsView" />
+
+        <TextView
+            android:id="@+id/yearRangeView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/year_range"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/dayRangeView"
+            app:layout_constraintTop_toBottomOf="@+id/dayRangeView" />
+
+        <TextView
+            android:id="@+id/priceAvgView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/price_avg_50"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/changePercView"
+            app:layout_constraintTop_toBottomOf="@+id/changePercView" />
+
+        <TextView
+            android:id="@+id/currentPriceView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/current_price"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/exchangeView"
+            app:layout_constraintTop_toBottomOf="@+id/exchangeView" />
+
+        <TextView
+            android:id="@+id/companyNameText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:textAlignment="center"
+            android:textColor="@color/teal_200"
+            android:textSize="18sp"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/logoView"
+            app:layout_constraintTop_toBottomOf="@+id/tickerText" />
+
+        <TextView
+            android:id="@+id/earningsView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/earnings"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/sharesView"
+            app:layout_constraintTop_toBottomOf="@+id/sharesView" />
+
+        <TextView
+            android:id="@+id/epsView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/eps"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/yearRangeView"
+            app:layout_constraintTop_toBottomOf="@+id/yearRangeView" />
+
+        <TextView
+            android:id="@+id/changePercView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/change"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/changeView"
+            app:layout_constraintTop_toBottomOf="@+id/changeView" />
+
+        <TextView
+            android:id="@+id/dayRangeView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/day_range"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/priceAvgView"
+            app:layout_constraintTop_toBottomOf="@+id/priceAvgView" />
+
+        <TextView
+            android:id="@+id/exchangeText"
+            android:layout_width="157dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="104dp"
+            android:textSize="18sp"
+            app:layout_constraintStart_toEndOf="@+id/exchangeView"
+            app:layout_constraintTop_toTopOf="@+id/exchangeView" />
+
+        <TextView
+            android:id="@+id/currentPriceText"
+            android:layout_width="157dp"
+            android:layout_height="24dp"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/exchangeText"
+            app:layout_constraintTop_toTopOf="@+id/currentPriceView" />
+
+        <TextView
+            android:id="@+id/changeText"
+            android:layout_width="157dp"
+            android:layout_height="24dp"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/exchangeText"
+            app:layout_constraintTop_toTopOf="@+id/changeView" />
+
+        <TextView
+            android:id="@+id/changePercentText"
+            android:layout_width="157dp"
+            android:layout_height="24dp"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/exchangeText"
+            app:layout_constraintTop_toTopOf="@+id/changePercView" />
+
+        <TextView
+            android:id="@+id/dayRangeText"
+            android:layout_width="157dp"
+            android:layout_height="24dp"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/exchangeText"
+            app:layout_constraintTop_toTopOf="@+id/dayRangeView" />
+
+        <TextView
+            android:id="@+id/sharesText"
+            android:layout_width="157dp"
+            android:layout_height="24dp"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/exchangeText"
+            app:layout_constraintTop_toTopOf="@+id/sharesView" />
+
+        <TextView
+            android:id="@+id/earningsText"
+            android:layout_width="157dp"
+            android:layout_height="24dp"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/exchangeText"
+            app:layout_constraintTop_toTopOf="@+id/earningsView" />
+
+        <TextView
+            android:id="@+id/priceAvg50Text"
+            android:layout_width="157dp"
+            android:layout_height="24dp"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/exchangeText"
+            app:layout_constraintTop_toTopOf="@+id/priceAvgView" />
+
+        <TextView
+            android:id="@+id/yearRangeText"
+            android:layout_width="157dp"
+            android:layout_height="24dp"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/exchangeText"
+            app:layout_constraintTop_toTopOf="@+id/yearRangeView" />
+
+        <TextView
+            android:id="@+id/epsText"
+            android:layout_width="157dp"
+            android:layout_height="24dp"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/exchangeText"
+            app:layout_constraintTop_toTopOf="@+id/epsView" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="20dp"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTicker" />
+
+        <ImageView
+            android:id="@+id/logoView"
+            android:layout_width="83dp"
+            android:layout_height="72dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider"
+            app:srcCompat="@android:drawable/ic_menu_info_details" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

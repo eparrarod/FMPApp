@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Web API Example</string>
+    <string name="tickerLabelText">Ticker:</string>
+    <string name="TickerHint">e.g., BAC</string>
+    <string name="searchLabel">Search</string>
+    <string name="exchange">Exchange</string>
+    <string name="changePerc">Change ($)</string>
+    <string name="shares_outstanding">Shares Outstanding</string>
+    <string name="year_range">Year Range</string>
+    <string name="price_avg_50">Price Avg 50</string>
+    <string name="current_price">Current Price</string>
+    <string name="earnings">Earnings</string>
+    <string name="eps">Eps</string>
+    <string name="change">Change (%)</string>
+    <string name="day_range">Day Range</string>
+</resources>
