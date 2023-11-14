@@ -2,10 +2,7 @@ package com.mobile.webapiexample;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Color;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -26,12 +23,6 @@ import com.squareup.picasso.Picasso;
 import org.json.JSONArray;
 import org.json.JSONException;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
@@ -51,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
             ImageView iv = findViewById(R.id.logoView);
             Picasso.get().load(imageURL).into(iv);
             makeRequest(ticker);
-
+            makeRequestImage(ticker);
             Toast.makeText(v.getContext(),"Hello puppies", Toast.LENGTH_LONG).show();
         }
     };
@@ -102,6 +93,33 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    private void makeRequestImage(String ticker) {
+        // https://financialmodelingprep.com/api/v3/profile/AAPL?apikey=demo
+        ANRequest req = AndroidNetworking.get("https://financialmodelingprep.com/api/v3/profile/{ticker}")
+                .addPathParameter("ticker", ticker)
+                .addQueryParameter("apikey", API_KEY)
+                .setPriority(Priority.LOW)
+                .build();
+        req.getAsJSONArray(new JSONArrayRequestListener() {
+            @Override
+            public void onResponse(JSONArray response) {
+                try {
+                    response.get(0);
+                    String imageURL = response.getJSONObject(0).getString("image");
+                    ImageView logo = findViewById(R.id.logoView);
+                    logo.setBackgroundColor(Color.GRAY);
+                    Picasso.get().load(imageURL).into(logo);
+                } catch (JSONException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+            @Override
+            public void onError(ANError anError) {
+
+            }
+        });
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -111,35 +129,5 @@ public class MainActivity extends AppCompatActivity {
 
         Button submitButton = (Button) findViewById(R.id.button);
         submitButton.setOnClickListener(localListener);
-
     }
-
-    class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
-        ImageView bmImage;
-
-        public DownloadImageTask(ImageView bmImage) {
-            this.bmImage = bmImage;
-        }
-
-        protected Bitmap doInBackground(String... urls) {
-            String urldisplay = urls[0];
-            Bitmap mIcon11 = null;
-            try {
-                InputStream in = new java.net.URL(urldisplay).openStream();
-                mIcon11 = BitmapFactory.decodeStream(in);
-            } catch (Exception e) {
-                Log.e("Error", e.getMessage());
-                e.printStackTrace();
-            }
-            return mIcon11;
-        }
-
-        @Override
-        protected void onPostExecute(Bitmap result) {
-            super.onPostExecute(result);
-            bmImage.setImageBitmap(result);
-        }
-    }
-
-
 }
